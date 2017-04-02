@@ -1,0 +1,29 @@
+{
+  "name": "event-hooks-webpack-plugin",
+  "version": "0.0.0",
+  "description": "Execute JavaScript on any available Webpack event hook",
+  "main": "event-hooks.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cascornelissen/event-hooks-webpack-plugin.git"
+  },
+  "keywords": [
+    "event",
+    "hook",
+    "webpack",
+    "plugin"
+  ],
+  "author": {
+    "name": "Cas Cornelissen",
+    "email": "cas.cornelissen@onefinity.io",
+    "url": "https://www.onefinity.io/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cascornelissen/event-hooks-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/cascornelissen/event-hooks-webpack-plugin#readme"
+}
