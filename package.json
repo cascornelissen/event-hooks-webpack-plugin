@@ -1,6 +1,6 @@
 {
   "name": "event-hooks-webpack-plugin",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Execute JavaScript on any available Webpack event hook",
   "main": "event-hooks.js",
   "scripts": {
