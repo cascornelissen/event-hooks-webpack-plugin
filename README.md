@@ -30,7 +30,7 @@ module.exports = {
 ```
 
 ## Options
-The plugin consumes an object with [Webpack event hook names](https://webpack.js.org/api/plugins/compiler/#event-hooks) (e.g. `run`, `compile`, or `done`) as keys and functions as values.
+The plugin consumes an object with [webpack compiler event hook names](https://github.com/webpack/webpack/blob/213226ece261a0e89edb9de15fbc6775418f6041/lib/Compiler.js#L29) (e.g. `run`, `compile`, or `done`) as keys and functions as values.
 
 ## License
 This project is [licensed](LICENSE.md) under the [MIT](https://opensource.org/licenses/MIT) license.
