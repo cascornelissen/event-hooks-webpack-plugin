@@ -1,4 +1,4 @@
-const EventHooksPlugin = require('../../event-hooks');
+const EventHooksPlugin = require('../../src/');
 
 module.exports = {
     plugins: [

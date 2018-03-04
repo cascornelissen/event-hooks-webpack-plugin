@@ -2,7 +2,7 @@
     "name": "event-hooks-webpack-plugin",
     "version": "1.0.0",
     "description": "Execute JavaScript on any available Webpack event hook",
-    "main": "event-hooks.js",
+    "main": "src/index.js",
     "homepage": "https://github.com/cascornelissen/event-hooks-webpack-plugin#readme",
     "repository": {
         "type": "git",
@@ -15,6 +15,11 @@
         "plugin"
     ],
     "license": "MIT",
+    "scripts": {
+        "test": "jest --verbose",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --collectCoverageFrom='svg-spritemap.js' --coverage"
+    },
     "author": {
         "name": "Cas Cornelissen",
         "email": "cas.cornelissen@onefinity.io",
@@ -24,6 +29,9 @@
         "node": ">= 6.9.0 || >= 8.9.0"
     },
     "devDependencies": {
+        "babel-jest": "^22.4.1",
+        "babel-preset-env": "^1.6.1",
+        "jest": "^22.4.2",
         "webpack": "^4.0.1",
         "webpack-cli": "^2.0.9"
     },
