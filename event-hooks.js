@@ -1,13 +1,19 @@
-function EventHooksPlugin(hooks) {
-    this.hooks = hooks;
+const plugin = {
+    name: 'EventHooksPlugin'
 }
 
-EventHooksPlugin.prototype.apply = function(compiler) {
-    var hooks = this.hooks;
+module.exports = class EventHooksPlugin {
+    constructor(hooks) {
+        this.hooks = hooks;
+    }
 
-    Object.keys(hooks).forEach(function(event) {
-        compiler.plugin(event, hooks[event]);
-    });
-};
+    apply(compiler) {
+        const hooks = this.hooks;
 
-module.exports = EventHooksPlugin;
+        // TODO: Support compilation hooks?
+
+        Object.keys(hooks).forEach((event) => {
+            compiler.hooks[event].tap(plugin, hooks[event]);
+        });
+    }
+}
