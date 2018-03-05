@@ -21,7 +21,7 @@ module.exports = {
     // ...
     plugins: [
         new EventHooksPlugin({
-            'event-name': () => {
+            'eventName': () => {
                 // ...
             }
         })
