@@ -13,7 +13,8 @@ Version `^2.0.0` of this plugin is compatible with webpack `^4.0.0`. If you're u
 npm install event-hooks-webpack-plugin --save-dev
 ```
 
-## Usage
+## Synchronous Usage
+
 ```js
 const EventHooksPlugin = require('event-hooks-webpack-plugin');
 
@@ -26,7 +27,46 @@ module.exports = {
             }
         })
     ]
-}
+};
+```
+
+## Asynchronous Usage
+
+### Callbacks
+
+```js
+const EventHooksPlugin = require('event-hooks-webpack-plugin');
+const { EventPluginCallbackTask } = require('event-hooks-webpack-plugin/tasks');
+
+module.exports = {
+  // ...
+  plugins: [
+    new EventHooksPlugin({
+      'eventName': new EventHooksPluginCallbackTask((compiler, callback) => {
+        // ...
+        callback();
+      })
+    })
+  ]
+};
+```
+
+### Promises
+
+```js
+const EventHooksPlugin = require('event-hooks-webpack-plugin');
+const { EventPluginPromiseTask } = require('event-hooks-webpack-plugin/tasks');
+
+module.exports = {
+  // ...
+  plugins: [
+    new EventHooksPlugin({
+      'eventName': new EventHooksPluginPromiseTask(async compiler => {
+        // ...
+      })
+    })
+  ]
+};
 ```
 
 ## Options
