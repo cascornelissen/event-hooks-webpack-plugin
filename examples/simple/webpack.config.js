@@ -1,14 +1,14 @@
-const EventHooksPlugin = require('../../lib/');
+const EventHooksPlugin = require('../../lib');
 
 module.exports = {
     plugins: [
         new EventHooksPlugin({
-            'run': () => {
-                console.log('RUN!');
+            run: () => {
+                console.log(`Executing 'run' callback task`);
             },
-            'done': () => {
-                console.log('DONE!');
+            done: () => {
+                console.log(`Starting 'done' callback task`);
             }
         })
     ]
-}
+};

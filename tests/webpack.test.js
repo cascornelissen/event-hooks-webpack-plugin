@@ -1,97 +1,93 @@
 import webpack from 'webpack';
 import EventHooksPlugin from '../lib/';
-import {
-  EventHooksPluginCallbackTask,
-  EventHooksPluginPromiseTask,
-  EventHooksPluginTask
-} from '../lib/hooks';
+import { CallbackTask, PromiseTask, Task } from '../lib/tasks';
 
 it('Throws a meaningful message when providing an invalid event hook name', () => {
     expect(() => {
         webpack({
             plugins: [
                 new EventHooksPlugin({
-                    'abc': () => {}
+                    abc: () => null
                 })
             ]
         });
     }).toThrow(/Invalid hook name/);
 });
 
-describe('Delegates to compiler', () => {
-  const tap = jest.fn();
-  const tapAsync = jest.fn();
-  const tapPromise = jest.fn();
+describe('Delegates Task classes to compiler', () => {
+    const tap = jest.fn();
+    const tapAsync = jest.fn();
+    const tapPromise = jest.fn();
 
-  const compiler = {
-    hooks: {
-      start: {
-        tap,
-        tapAsync,
-        tapPromise
-      }
-    }
-  };
-
-  afterEach(() => {
-    tap.mockReset();
-    tapPromise.mockReset();
-    tapAsync.mockReset();
-  });
-
-  it('Functions to #tap', () => {
-    const hooks = {
-      start: () => null
+    const compiler = {
+        hooks: {
+            start: {
+                tap,
+                tapAsync,
+                tapPromise
+            }
+        }
     };
 
-    const plugin = new EventHooksPlugin(hooks);
+    afterEach(() => {
+        tap.mockReset();
+        tapPromise.mockReset();
+        tapAsync.mockReset();
+    });
 
-    plugin.apply(compiler);
+    it('Functions to #tap', () => {
+        const hooks = {
+            start: () => null
+        };
 
-    expect(tap).toHaveBeenCalled();
-    expect(tapPromise).not.toHaveBeenCalled();
-    expect(tapAsync).not.toHaveBeenCalled();
-  });
+        const plugin = new EventHooksPlugin(hooks);
 
-  it('EventHooksPluginTask to #tap', () => {
-    const hooks = {
-      start: new EventHooksPluginTask(compiler => null)
-    };
+        plugin.apply(compiler);
 
-    const plugin = new EventHooksPlugin(hooks);
+        expect(tap).toHaveBeenCalled();
+        expect(tapPromise).not.toHaveBeenCalled();
+        expect(tapAsync).not.toHaveBeenCalled();
+    });
 
-    plugin.apply(compiler);
+    it('Task to #tap', () => {
+        const hooks = {
+            start: new Task(() => null)
+        };
 
-    expect(tap).toHaveBeenCalled();
-    expect(tapPromise).not.toHaveBeenCalled();
-    expect(tapAsync).not.toHaveBeenCalled();
-  });
+        const plugin = new EventHooksPlugin(hooks);
 
-  it('EventHooksPluginPromiseTask to #tapPromise', () => {
-    const hooks = {
-      start: new EventHooksPluginPromiseTask(async compiler => null)
-    };
+        plugin.apply(compiler);
 
-    const plugin = new EventHooksPlugin(hooks);
+        expect(tap).toHaveBeenCalled();
+        expect(tapPromise).not.toHaveBeenCalled();
+        expect(tapAsync).not.toHaveBeenCalled();
+    });
 
-    plugin.apply(compiler);
+    it('PromiseTask to #tapPromise', () => {
+        const hooks = {
+            start: new PromiseTask(async () => null)
+        };
 
-    expect(tap).not.toHaveBeenCalled();
-    expect(tapPromise).toHaveBeenCalled();
-    expect(tapAsync).not.toHaveBeenCalled();
-  });
+        const plugin = new EventHooksPlugin(hooks);
 
-  it('EventHooksPluginTask to #tapAsync', () => {
-    const hooks = {
-      start: new EventHooksPluginCallbackTask((compiler, cb) => cb())
-    };
+        plugin.apply(compiler);
 
-    const plugin = new EventHooksPlugin(hooks);
+        expect(tap).not.toHaveBeenCalled();
+        expect(tapPromise).toHaveBeenCalled();
+        expect(tapAsync).not.toHaveBeenCalled();
+    });
 
-    plugin.apply(compiler);
+    it('CallbackTask to #tapAsync', () => {
+        const hooks = {
+            start: new CallbackTask((compiler, callback) => callback())
+        };
 
-    expect(tap).not.toHaveBeenCalled();
-    expect(tapPromise).not.toHaveBeenCalled();
-    expect(tapAsync).toHaveBeenCalled();
-  });
+        const plugin = new EventHooksPlugin(hooks);
+
+        plugin.apply(compiler);
+
+        expect(tap).not.toHaveBeenCalled();
+        expect(tapPromise).not.toHaveBeenCalled();
+        expect(tapAsync).toHaveBeenCalled();
+    });
 });

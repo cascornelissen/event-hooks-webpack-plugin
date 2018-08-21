@@ -13,8 +13,7 @@ Version `^2.0.0` of this plugin is compatible with webpack `^4.0.0`. If you're u
 npm install event-hooks-webpack-plugin --save-dev
 ```
 
-## Synchronous Usage
-
+## Synchronous usage
 ```js
 const EventHooksPlugin = require('event-hooks-webpack-plugin');
 
@@ -22,7 +21,7 @@ module.exports = {
     // ...
     plugins: [
         new EventHooksPlugin({
-            'eventName': () => {
+            eventName: () => {
                 // ...
             }
         })
@@ -30,47 +29,44 @@ module.exports = {
 };
 ```
 
-## Asynchronous Usage
-
+## Asynchronous usage
 ### Callbacks
-
 ```js
 const EventHooksPlugin = require('event-hooks-webpack-plugin');
-const { EventPluginCallbackTask } = require('event-hooks-webpack-plugin/tasks');
+const { CallbackTask } = require('event-hooks-webpack-plugin/lib/tasks');
 
 module.exports = {
-  // ...
-  plugins: [
-    new EventHooksPlugin({
-      'eventName': new EventHooksPluginCallbackTask((compiler, callback) => {
-        // ...
-        callback();
-      })
-    })
-  ]
+    // ...
+    plugins: [
+        new EventHooksPlugin({
+            eventName: new CallbackTask((compiler, callback) => {
+                // ...
+                callback();
+            })
+        })
+    ]
 };
 ```
 
 ### Promises
-
 ```js
 const EventHooksPlugin = require('event-hooks-webpack-plugin');
-const { EventPluginPromiseTask } = require('event-hooks-webpack-plugin/tasks');
+const { PromiseTask } = require('event-hooks-webpack-plugin/lib/tasks');
 
 module.exports = {
-  // ...
-  plugins: [
-    new EventHooksPlugin({
-      'eventName': new EventHooksPluginPromiseTask(async compiler => {
-        // ...
-      })
-    })
-  ]
+    // ...
+    plugins: [
+        new EventHooksPlugin({
+            eventName: new PromiseTask(async () => {
+                // ...
+            })
+        })
+    ]
 };
 ```
 
 ## Options
-The plugin consumes an object with [webpack compiler event hook names](https://github.com/webpack/webpack/blob/213226ece261a0e89edb9de15fbc6775418f6041/lib/Compiler.js#L29) (e.g. `run`, `compile`, or `done`) as keys and functions as values.
+The plugin consumes an object with [webpack compiler event hook names](https://github.com/webpack/webpack/blob/213226ece261a0e89edb9de15fbc6775418f6041/lib/Compiler.js#L29) (e.g. `run`, `compile`, or `done`) as keys and functions or [task classes](./lib/tasks.js) as values.
 
 ## License
 This project is [licensed](LICENSE.md) under the [MIT](https://opensource.org/licenses/MIT) license.

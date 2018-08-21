@@ -1,24 +1,21 @@
-const EventHooksPlugin = require('../../lib/');
-const {
-  EventHooksPluginCallbackTask,
-  EventHooksPluginPromiseTask
-} = require('../../lib/hooks');
+const EventHooksPlugin = require('../../lib');
+const { CallbackTask, PromiseTask } = require('../../lib/tasks');
 
 module.exports = {
-  plugins: [
-    new EventHooksPlugin({
-      run: new EventHooksPluginCallbackTask((compiler, callback) => {
-        console.log('Starting callback task');
-        setTimeout(() => {
-          console.log('Finished callback task');
-          callback();
-        }, 2000);
-      }),
-      done: new EventHooksPluginPromiseTask(async compiler => {
-        console.log('Starting promise task');
-        await new Promise(r => setTimeout(r, 2000));
-        console.log('Finished promise task');
-      })
-    })
-  ]
+    plugins: [
+        new EventHooksPlugin({
+            run: new CallbackTask((compiler, callback) => {
+                console.log(`Starting 'run' callback task`);
+                setTimeout(() => {
+                    console.log(`Finished 'run' callback task`);
+                    callback();
+                }, 2000);
+            }),
+            done: new PromiseTask(async () => {
+                console.log(`Starting 'done' promise task`);
+                await new Promise((resolve) => setTimeout(resolve, 2000));
+                console.log(`Finished 'done' promise task`);
+            })
+        })
+    ]
 };
