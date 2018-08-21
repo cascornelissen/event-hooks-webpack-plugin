@@ -29,11 +29,11 @@
         "node": ">= 6.9.0 || >= 8.9.0"
     },
     "devDependencies": {
-        "babel-jest": "^22.4.1",
-        "babel-preset-env": "^1.6.1",
-        "jest": "^22.4.2",
-        "webpack": "^4.0.1",
-        "webpack-cli": "^2.0.9"
+        "babel-jest": "^23.4.2",
+        "babel-preset-env": "^1.7.0",
+        "jest": "^23.5.0",
+        "webpack": "^4.17.0",
+        "webpack-cli": "^3.1.0"
     },
     "peerDependencies": {
         "webpack": "^4.0.0"
