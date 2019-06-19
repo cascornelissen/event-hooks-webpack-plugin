@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import 'regenerator-runtime/runtime';
 import EventHooksPlugin from '../lib/';
 import { CallbackTask, PromiseTask, Task } from '../lib/tasks';
 
