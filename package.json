@@ -20,6 +20,9 @@
         "test:watch": "jest --watch",
         "test:coverage": "jest --collectCoverageFrom='lib/index.js' --coverage"
     },
+    "files": [
+        "lib/"
+    ],
     "author": {
         "name": "Cas Cornelissen",
         "email": "cas.cornelissen@onefinity.io",
