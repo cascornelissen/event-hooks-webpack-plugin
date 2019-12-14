@@ -32,12 +32,12 @@
         "node": ">= 6.9.0 || >= 8.9.0"
     },
     "devDependencies": {
-        "@babel/preset-env": "^7.5.4",
-        "babel-jest": "^24.8.0",
-        "jest": "^24.8.0",
-        "regenerator-runtime": "^0.13.2",
-        "webpack": "^4.35.3",
-        "webpack-cli": "^3.3.6"
+        "@babel/preset-env": "^7.7.6",
+        "babel-jest": "^24.9.0",
+        "jest": "^24.9.0",
+        "regenerator-runtime": "^0.13.3",
+        "webpack": "^4.41.2",
+        "webpack-cli": "^3.3.10"
     },
     "peerDependencies": {
         "webpack": "^4.0.0"
