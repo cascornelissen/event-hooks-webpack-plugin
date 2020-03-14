@@ -7,7 +7,7 @@ module.exports = {
                 console.log(`Executing 'run' callback task`);
             },
             done: () => {
-                console.log(`Starting 'done' callback task`);
+                console.log(`Executing 'done' callback task`);
             }
         })
     ]
