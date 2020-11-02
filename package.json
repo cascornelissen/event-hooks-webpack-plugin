@@ -16,8 +16,8 @@
     ],
     "license": "MIT",
     "scripts": {
-        "test": "jest --verbose",
-        "test:watch": "jest --watch",
+        "test": "jest --verbose --config tests/jest.config.js",
+        "test:webpack4": "cross-env WEBPACK_VERSION=4 npm run test",
         "test:coverage": "jest --collectCoverageFrom='lib/index.js' --coverage"
     },
     "files": [
@@ -34,10 +34,13 @@
     "devDependencies": {
         "@babel/preset-env": "^7.12.1",
         "babel-jest": "^26.6.1",
+        "cross-env": "^7.0.2",
         "jest": "^26.6.1",
+        "module-alias": "^2.2.2",
         "regenerator-runtime": "^0.13.7",
         "webpack": "^5.3.2",
-        "webpack-cli": "^4.1.0"
+        "webpack-cli": "^4.1.0",
+        "webpack-v4": "npm:webpack@^4.0.0"
     },
     "peerDependencies": {
         "webpack": "^4.0.0 || ^5.0.0"
