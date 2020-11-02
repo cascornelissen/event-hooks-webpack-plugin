@@ -5,9 +5,6 @@
 
 This [webpack](https://webpack.github.io/) plugin is similar to [`webpack-shell-plugin`](https://www.npmjs.com/package/webpack-shell-plugin) but this allows you to execute arbitrary JavaScript instead of commands on *any* [event hook](https://webpack.js.org/api/plugins/compiler/#event-hooks) that is exposed by the Webpack compiler.
 
-**Compatibility**  
-Version `^2.0.0` of this plugin is compatible with webpack `^4.0.0` and `^5.0.0`. If you're using an older version of webpack, make sure to install the `^1.0.0` (`npm install event-hooks-webpack-plugin@^1.0.0`) release of this plugin.
-
 ## Installation
 ```shell
 npm install event-hooks-webpack-plugin --save-dev
