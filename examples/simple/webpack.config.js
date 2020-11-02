@@ -6,9 +6,11 @@ module.exports = {
             run: () => {
                 console.log(`Executing 'run' callback task`);
             },
-            done: () => {
-                console.log(`Executing 'done' callback task`);
-            }
+            done: [() => {
+                console.log(`Executing 'done' callback task #1`);
+            }, () => {
+                console.log(`Executing 'done' callback task #2`);
+            }]
         })
     ]
 };
