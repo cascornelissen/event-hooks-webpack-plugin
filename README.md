@@ -30,13 +30,12 @@ module.exports = {
 ### Callbacks
 ```js
 const EventHooksPlugin = require('event-hooks-webpack-plugin');
-const { CallbackTask } = require('event-hooks-webpack-plugin/lib/tasks');
 
 module.exports = {
     // ...
     plugins: [
         new EventHooksPlugin({
-            eventName: new CallbackTask((compiler, callback) => {
+            eventName: new EventHooksPlugin.CallbackTask((compiler, callback) => {
                 // ...
                 callback();
             })
@@ -48,13 +47,12 @@ module.exports = {
 ### Promises
 ```js
 const EventHooksPlugin = require('event-hooks-webpack-plugin');
-const { PromiseTask } = require('event-hooks-webpack-plugin/lib/tasks');
 
 module.exports = {
     // ...
     plugins: [
         new EventHooksPlugin({
-            eventName: new PromiseTask(async () => {
+            eventName: new EventHooksPlugin.PromiseTask(async () => {
                 // ...
             })
         })

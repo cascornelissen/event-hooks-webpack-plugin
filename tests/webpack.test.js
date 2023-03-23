@@ -1,7 +1,6 @@
 import 'regenerator-runtime/runtime';
 import path from 'path';
 import EventHooksPlugin from '../lib/';
-import { CallbackTask, PromiseTask, Task } from '../lib/tasks';
 
 describe('Options', () => {
     it('should execute correctly when a function is provided', (done) => {
@@ -109,7 +108,7 @@ describe('Task classes', () => {
 
     it('should use tap for Task class', () => {
         const hooks = {
-            start: new Task(() => null)
+            start: new EventHooksPlugin.Task(() => null)
         };
 
         const plugin = new EventHooksPlugin(hooks);
@@ -123,7 +122,7 @@ describe('Task classes', () => {
 
     it('should use tapPromise for PromiseTask class', () => {
         const hooks = {
-            start: new PromiseTask(async () => null)
+            start: new EventHooksPlugin.PromiseTask(async () => null)
         };
 
         const plugin = new EventHooksPlugin(hooks);
@@ -137,7 +136,7 @@ describe('Task classes', () => {
 
     it('should use tapAsync for CallbackTask class', () => {
         const hooks = {
-            start: new CallbackTask((compiler, callback) => callback())
+            start: new EventHooksPlugin.CallbackTask((compiler, callback) => callback())
         };
 
         const plugin = new EventHooksPlugin(hooks);
