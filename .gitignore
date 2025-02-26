@@ -1,4 +1,7 @@
 /node_modules
-/coverage
 /examples/*/dist
 /dist
+index.js
+index.d.ts
+source/**/*.js
+source/**/*.d.ts
