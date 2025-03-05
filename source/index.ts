@@ -36,7 +36,7 @@ class EventHooksPlugin {
                 const method = TAP_SYMBOL in callback ? callback[TAP_SYMBOL] : 'tap';
 
                 // @ts-expect-error -- method and callback can not be inferred correctly with the current Webpack types
-                hook[method](PLUGIN, callback);
+                hook[method](PLUGIN, callback); // eslint-disable-line @typescript-eslint/no-unsafe-call
             });
         });
     }

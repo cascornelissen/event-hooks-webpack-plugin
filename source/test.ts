@@ -81,7 +81,7 @@ describe('Hooks', () => {
 
     it('supports different ways of tapping', (context, done) => {
         const initialize = tap(mock.fn());
-        const run = tapAsync(mock.fn((_, callback) => {
+        const run = tapAsync(mock.fn((_, callback: () => void) => {
             setImmediate(callback);
         }));
         const emit = tapPromise(mock.fn(() => {
