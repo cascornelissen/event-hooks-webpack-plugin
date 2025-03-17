@@ -15,7 +15,7 @@ npm install event-hooks-webpack-plugin --save-dev
 ```js
 import EventHooksPlugin from 'event-hooks-webpack-plugin';
 
-module.exports = {
+export default {
     // ...
     plugins: [
         new EventHooksPlugin({
@@ -39,7 +39,7 @@ By default, the plugin uses `tap`.
 ```js
 import EventHooksPlugin, { tapPromise, tapAsync } from 'event-hooks-webpack-plugin';
 
-module.exports = {
+export default {
     // ...
     plugins: [
         new EventHooksPlugin({
