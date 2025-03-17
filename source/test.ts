@@ -2,7 +2,7 @@ import path from 'node:path';
 import assert from 'node:assert';
 import webpack from 'webpack';
 import { rimraf } from 'rimraf';
-import { describe, it, after, mock } from 'node:test';
+import { describe, it, afterEach, mock } from 'node:test';
 import EventHooksPlugin from './index.js'; // eslint-disable-line @onefinity/eslint-config/import-grouping
 
 // Helpers
@@ -11,7 +11,7 @@ import { tap, tapAsync, tapPromise } from './helpers.js';
 // Constants
 import { TAP_SYMBOL } from './constants.js';
 
-after(() => {
+afterEach(() => {
     rimraf.sync(path.resolve(import.meta.dirname, '../dist/'));
 });
 
