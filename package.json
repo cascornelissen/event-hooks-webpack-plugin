@@ -1,6 +1,6 @@
 {
     "name": "event-hooks-webpack-plugin",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "description": "Execute JavaScript on any available Webpack event hook",
     "homepage": "https://github.com/cascornelissen/event-hooks-webpack-plugin#readme",
     "license": "MIT",
