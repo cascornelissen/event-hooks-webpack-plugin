@@ -1,6 +1,6 @@
 import path from 'node:path';
 import assert from 'node:assert';
-import webpack, { Configuration } from 'webpack';
+import webpack from 'webpack';
 import { rimraf } from 'rimraf';
 import { describe, it, after, mock } from 'node:test';
 import EventHooksPlugin from './index.js'; // eslint-disable-line @onefinity/eslint-config/import-grouping
@@ -16,7 +16,7 @@ after(() => {
 });
 
 describe('Hooks', () => {
-    const options: Partial<Configuration> = {
+    const options: Partial<webpack.Configuration> = {
         entry: 'data:text/javascript,',
         mode: 'development'
     };
