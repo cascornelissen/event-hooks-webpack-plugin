@@ -44,7 +44,7 @@
     "devDependencies": {
         "@onefinity/eslint-config": "^3.3.0",
         "rimraf": "^6.0.1",
-        "tsx": "^4.19.3",
+        "tsx": "^4.19.4",
         "typescript": "^5.8.3",
         "webpack-cli": "^6.0.1"
     },
