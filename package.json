@@ -46,7 +46,7 @@
         "@onefinity/eslint-config": "^3.6.1",
         "husky": "^9.1.7",
         "rimraf": "^6.0.1",
-        "tsx": "^4.20.3",
+        "tsx": "^4.20.4",
         "typescript": "^5.9.2",
         "webpack-cli": "^6.0.1"
     },
