@@ -3,6 +3,8 @@
         "target": "es6",
         "module": "nodenext",
         "moduleResolution": "nodenext",
+        "lib": ["es2023"],
+        "types": ["node"],
         "strict": true,
         "skipLibCheck": true,
         "esModuleInterop": true,
