@@ -1,7 +1,7 @@
-import { Compiler } from 'webpack';
+import { type Compiler } from 'webpack';
 
 // Constants
-import { TAP_SYMBOL } from './constants.js';
+import { type TAP_SYMBOL } from './constants.js';
 
 export type TapMethod = 'tap' | 'tapPromise' | 'tapAsync';
 export type WithTapSymbol<T, V extends TapMethod = TapMethod> = T & {

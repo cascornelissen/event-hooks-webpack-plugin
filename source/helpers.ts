@@ -2,7 +2,7 @@
 import { TAP_SYMBOL } from './constants.js';
 
 // Types
-import { Hooks, TapMethod, WithTapSymbol } from './types.js';
+import { type Hooks, type TapMethod, type WithTapSymbol } from './types.js';
 
 export const addSymbol = <T extends Hooks[keyof Hooks], V extends TapMethod>(hook: T, value: V) => {
     return Object.defineProperty(hook, TAP_SYMBOL, {

@@ -4,7 +4,7 @@ import webpack from 'webpack';
 import { PLUGIN, TAP_SYMBOL } from './constants.js';
 
 // Types
-import { Hooks } from './types.js';
+import { type Hooks } from './types.js';
 
 class EventHooksPlugin {
     private readonly hooks: Hooks;
@@ -17,7 +17,7 @@ class EventHooksPlugin {
         const hooks = this.hooks;
 
         Object.keys(hooks).filter((name): name is keyof webpack.Compiler['hooks'] => {
-            const isKnownHook = name in compiler.hooks;
+            const isKnownHook = Object.hasOwn(compiler.hooks, name);
 
             if (!isKnownHook) {
                 compiler.hooks.make.tap(PLUGIN, (compilation) => {
@@ -33,7 +33,7 @@ class EventHooksPlugin {
                 return callback !== undefined;
             }).forEach((callback) => {
                 const hook = compiler.hooks[name];
-                const method = TAP_SYMBOL in callback ? callback[TAP_SYMBOL] : 'tap';
+                const method = TAP_SYMBOL in callback ? callback[TAP_SYMBOL] : 'tap'; // eslint-disable-line unicorn/no-computed-property-existence-check
 
                 // @ts-expect-error -- method and callback can not be inferred correctly with the current Webpack types
                 hook[method](PLUGIN, callback); // eslint-disable-line @typescript-eslint/no-unsafe-call

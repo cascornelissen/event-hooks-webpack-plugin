@@ -46,7 +46,7 @@
         "node": "^20.11.0 || ^21.2.0 || >=22.16.0"
     },
     "devDependencies": {
-        "@onefinity/eslint-config": "^3.7.1",
+        "@onefinity/eslint-config": "^4.1.0",
         "@types/node": "^24.12.4",
         "husky": "^9.1.7",
         "rimraf": "^6.1.3",
